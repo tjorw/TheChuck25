@@ -40,10 +40,6 @@ jobs:
     permissions:
       contents: none
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ${{ env.WORKING-DIRECTORY }}
-        
     needs: build
     environment:
       name: 'Development'
