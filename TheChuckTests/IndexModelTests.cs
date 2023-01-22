@@ -20,13 +20,26 @@ namespace TheChuck.Pages.Tests
         {
             //Arrange
             var joke = new Joke() { Value = "Works"};
-            var sut = new IndexModel(NullLogger<IndexModel>.Instance, new FakeJokeService(joke));
+            var sut = new IndexModel(NullLogger<IndexModel>.Instance, new JokeServiceFake(joke));
 
             //Act
             await sut.OnGet();
 
             //Assert
             Assert.AreEqual("Works", sut.DisplayText);
+        }
+
+        [TestMethod()]
+        public async Task OnGet_ShouldDisplayTextTryAgainWhenApiIsNotWorking()
+        {
+            //Arrange
+            var sut = new IndexModel(NullLogger<IndexModel>.Instance, new JokeServiceBrokenFake());
+
+            //Act
+            await sut.OnGet();
+
+            //Assert
+            Assert.AreEqual("Något gick fel. Försök igen lite senare.", sut.DisplayText);
         }
 
         /*
@@ -36,7 +49,7 @@ namespace TheChuck.Pages.Tests
         {
             //Arrange
             var joke = new Joke() { Value = "Works"};
-            var pageModel = new IndexModel(NullLogger<IndexModel>.Instance, new FakeJokeService(joke));
+            var pageModel = new IndexModel(NullLogger<IndexModel>.Instance, new JokeServiceFake(joke));
 
             //Act
             await pageModel.OnGet();

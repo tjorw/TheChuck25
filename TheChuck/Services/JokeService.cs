@@ -16,35 +16,35 @@ public class JokeService : IJokeService
 
   public async Task<Joke?> GetJokeFromCategory(string category)
   {
-    string Url = "https://api.chucknorris.io/jokes/random?category=" + category;
+    string url = "https://api.chucknorris.io/jokes/random?category=" + category;
 
     try
     {
-      var joke = await _webClient.Get<Joke>(Url) ?? new Joke();
+      var joke = await _webClient.Get<Joke>(url) ?? new Joke();
       return joke;
     }
     catch (Exception ex)
     {
-      //Normally, I would handle this exception instead of swallowing it, passing it up to the line, or logging it. However, in this excercise, I am unsure what I should do with it.
-      _logger.LogError(ex, "Det gick inte att hämta joke via kategori", category);
-      return null;
+      var errorMessage = "Det gick inte att hämta joke via kategori";
+      _logger.LogError(ex, errorMessage, url);
+      throw new Exception(errorMessage, ex);
     }
   }
 
   public async Task<Joke?> GetRandomJoke()
   {
-    string Url = "https://api.chucknorris.io/jokes/random";
+    string url = "https://api.chucknorris.io/jokes/random";
 
     try
     {
-      var joke = await _webClient.Get<Joke>(Url) ?? new Joke();
+      var joke = await _webClient.Get<Joke>(url) ?? new Joke();
       return joke;
     }
     catch (Exception ex)
     {
-      //Normally, I would handle this exception instead of swallowing it, passing it up to the line, or logging it. However, in this excercise, I am unsure what I should do with it.
-      _logger.LogError(ex, "Det gick inte att hämta ett joke ");
-      return null;
+      var errorMessage = "Det gick inte att hämta joke";
+      _logger.LogError(ex, errorMessage, url);
+      throw new Exception(errorMessage, ex);
     }
   }
 

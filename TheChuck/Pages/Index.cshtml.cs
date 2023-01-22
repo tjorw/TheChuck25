@@ -32,8 +32,16 @@ namespace TheChuck.Pages
         //Den här körs varje gång någon surfar till sidan
         public async Task OnGet()
         {
-            var joke =  await _jokeService.GetRandomJoke();
-            DisplayText = joke?.Value ?? "";
+            try
+            {
+                var joke = await _jokeService.GetRandomJoke();
+                DisplayText = joke?.Value ?? "";
+            }
+            catch
+            {
+                // Att felhanteringen fungerar korrekt är något som också är viktigt att testa
+                DisplayText = "Något gick fel. Försök igen lite senare.";
+            }
         }
     }
 }

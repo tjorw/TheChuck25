@@ -3,11 +3,11 @@ using TheChuck.Services;
 
 namespace TheChuckTests.Fakes
 {
-    internal class FakeJokeService : IJokeService
+    internal class JokeServiceFake : IJokeService
     {
         private readonly Joke joke;
 
-        public FakeJokeService(Joke joke)
+        public JokeServiceFake(Joke joke)
         {
             this.joke = joke;
         }
@@ -23,3 +23,5 @@ namespace TheChuckTests.Fakes
         }
     }
 }
+
+
