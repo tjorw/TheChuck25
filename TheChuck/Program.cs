@@ -5,6 +5,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
+// DEPENDENCY INJECTION
+// När koden ber om en IJokeService, så skall den få en JokeService
+// I testprojektet stoppar vi in något annat för att INTE anropa api.chucknorris.io. Vi kan på så sätt kontrollera vad vi testar oavsett vad den riktiga tjänsten svarar.
+// Vi är ju bara intresserade av att testa att vår tjänst fungerar och gör rätt. Vi vill inte testat api.chucknorris.io.
 builder.Services.AddScoped<IJokeService, JokeService>();
 builder.Services.AddScoped<IWebClient, WebClient>();
 

@@ -5,6 +5,13 @@ namespace TheChuckTests.Fakes
 {
     internal class FakeJokeService : IJokeService
     {
+        private readonly Joke joke;
+
+        public FakeJokeService(Joke joke)
+        {
+            this.joke = joke;
+        }
+
         public Task<Joke?> GetJokeFromCategory(string category)
         {
             throw new NotImplementedException();
@@ -12,12 +19,7 @@ namespace TheChuckTests.Fakes
 
         public async Task<Joke?> GetRandomJoke()
         {
-            var result = new Joke()
-            {
-                Value = "Works"
-            };
-
-            return await Task.FromResult(result);
+            return await Task.FromResult(joke);
         }
     }
 }
