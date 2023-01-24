@@ -24,7 +24,6 @@ env:
   AZURE_WEBAPP_NAME: 'TheChuck'    # set this to the name of your Azure Web App
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '6.0.x'                 # set this to the .NET Core version to use
-  WORKING-DIRECTORY: 'TheChuck'                 # path to solution
 
 on:
   push:
@@ -36,9 +35,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ${{ env.WORKING-DIRECTORY }}
 
     steps:
     - uses: actions/checkout@v3
