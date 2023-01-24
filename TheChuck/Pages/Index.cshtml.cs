@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TheChuck.Models;
-using TheChuck.Services;
+using TheChuck.Core;
 
 namespace TheChuck.Pages
 {
@@ -37,8 +36,10 @@ namespace TheChuck.Pages
                 var joke = await _jokeService.GetRandomJoke();
                 DisplayText = joke?.Value ?? "";
             }
-            catch
+            catch(Exception ex)
             {
+                _logger.LogError(ex, ex.Message);
+
                 // Att felhanteringen fungerar korrekt är något som också är viktigt att testa
                 DisplayText = "Något gick fel. Försök igen lite senare.";
             }

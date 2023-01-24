@@ -10,4 +10,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TheChuck.Core\TheChuck.Core.csproj" />
+    <ProjectReference Include="..\TheChuck.Infrastructure\TheChuck.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

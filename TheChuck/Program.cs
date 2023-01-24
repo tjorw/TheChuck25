@@ -1,4 +1,7 @@
-using TheChuck.Services;
+
+using TheChuck.Core;
+using TheChuck.Infrastructure;
+using TheChuck.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

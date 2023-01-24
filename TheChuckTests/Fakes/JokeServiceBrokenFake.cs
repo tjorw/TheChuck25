@@ -1,5 +1,4 @@
-using TheChuck.Models;
-using TheChuck.Services;
+using TheChuck.Core;
 
 namespace TheChuckTests.Fakes
 {

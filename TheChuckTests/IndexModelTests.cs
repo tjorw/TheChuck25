@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Extensions.Logging.Abstractions;
 using TheChuckTests.Fakes;
-using TheChuck.Models;
+using TheChuck.Core;
 
 namespace TheChuck.Pages.Tests
 {
