@@ -1,4 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TheChuck.Pages;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TheChuck.Services;
 using Microsoft.Extensions.Logging.Abstractions;
 using TheChuckTests.Fakes;
 using TheChuck.Core;
@@ -9,7 +16,7 @@ namespace TheChuck.Pages.Tests
     public class IndexModelTests
     {
         [TestMethod()]
-        public async Task OnGet_ShouldDisplayText()
+        public async Task OnGet_ShouldDisplayTextFromService()
         {
             //Arrange
             var joke = new Joke() { Value = "Works"};
@@ -23,7 +30,7 @@ namespace TheChuck.Pages.Tests
         }
 
         [TestMethod()]
-        public async Task OnGet_ShouldDisplayTryAgainMessageWhenApiIsNotWorking()
+        public async Task OnGet_ShouldDisplayTextTryAgainWhenApiIsNotWorking()
         {
             //Arrange
             var sut = new IndexModel(NullLogger<IndexModel>.Instance, new JokeServiceBrokenFake());
@@ -36,6 +43,7 @@ namespace TheChuck.Pages.Tests
         }
 
         /*
+
         [TestMethod()]
         public async Task OnGet_ShouldBeUppecase()
         {
