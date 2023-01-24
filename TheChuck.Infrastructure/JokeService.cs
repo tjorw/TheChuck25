@@ -18,13 +18,11 @@ public class JokeService : IJokeService
 
         try
         {
-            var joke = await _webClient.Get<Joke>(url) ?? new Joke();
-            return joke;
+            return await _webClient.Get<Joke>(url) ?? new Joke();
         }
         catch (Exception ex)
         {
-            var errorMessage = "Det gick inte att hämta joke via kategori";
-            throw new Exception(errorMessage, ex);
+            throw new Exception("Det gick inte att hämta joke via kategori", ex);
         }
     }
 
@@ -34,13 +32,11 @@ public class JokeService : IJokeService
 
         try
         {
-            var joke = await _webClient.Get<Joke>(url) ?? new Joke();
-            return joke;
+            return await _webClient.Get<Joke>(url) ?? new Joke();
         }
         catch (Exception ex)
         {
-            var errorMessage = "Det gick inte att hämta joke";
-            throw new Exception(errorMessage, ex);
+            throw new Exception("Det gick inte att hämta joke", ex);
         }
     }
 
