@@ -19,7 +19,7 @@ namespace TheChuck.Pages.Tests
             await sut.OnGet();
 
             //Assert
-            Assert.AreEqual("Fail", sut.DisplayText);
+            Assert.AreEqual("Works", sut.DisplayText);
         }
 
         [TestMethod()]
