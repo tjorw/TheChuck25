@@ -1,11 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TheChuck.Pages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TheChuck.Services;
 using Microsoft.Extensions.Logging.Abstractions;
 using TheChuckTests.Fakes;
 using TheChuck.Core;
