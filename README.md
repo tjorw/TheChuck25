@@ -1,2 +1,2 @@
 # TheChuck
-Excercise Template for SUVNET
+Exercise Template for SUVNET
