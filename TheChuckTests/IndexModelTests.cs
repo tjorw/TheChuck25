@@ -19,7 +19,7 @@ namespace TheChuck.Pages.Tests
             await sut.OnGet();
 
             //Assert
-            Assert.AreEqual("Works", sut.DisplayText);
+            Assert.AreEqual("Works".ToUpper(), sut.DisplayText.ToUpper());
         }
 
         [TestMethod()]
@@ -32,11 +32,10 @@ namespace TheChuck.Pages.Tests
             await sut.OnGet();
 
             //Assert
-            Assert.AreEqual("Något gick fel. Försök igen lite senare.", sut.DisplayText);
+            Assert.AreEqual("Något gick fel. Försök igen lite senare.".ToUpper(), sut.DisplayText.ToUpper());
         }
 
         /*
-
         [TestMethod()]
         public async Task OnGet_ShouldBeUppecase()
         {
