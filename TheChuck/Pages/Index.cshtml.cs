@@ -44,6 +44,8 @@ namespace TheChuck.Pages
                 // Att felhanteringen fungerar korrekt är något som också är viktigt att testa
                 DisplayText = "Något gick fel. Försök igen lite senare.";
             }
+
+            DisplayText = DisplayText.ToUpper();
         }
     }
 }
